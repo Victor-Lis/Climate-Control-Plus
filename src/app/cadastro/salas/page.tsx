@@ -1,6 +1,6 @@
-import Button from "../components/Button";
+import Button from "../../components/Button";
 
-export default function Cadastro() {
+export default function Salas() {
   return (
     <main className="min-h-[100vh] bg-green-950 flex items-center justify-center">
       <Button/>
