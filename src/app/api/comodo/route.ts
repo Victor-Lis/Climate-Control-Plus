@@ -2,6 +2,11 @@ import { NextResponse } from 'next/server'
 import prismaClient from '@/lib/prisma'
 import { redirect } from 'next/navigation'
 
+function cleanData<T extends { [key: string]: {cidade: string, nome: string} }>(object: T){
+    let keys = Object.keys(object)
+    keys.map((key) => !object[key]? delete object[key]: '')
+}
+
 export async function GET(request: Request){
     try {
         const comodos = await prismaClient.comodo.findMany({})
@@ -13,16 +18,17 @@ export async function GET(request: Request){
 }
 
 export async function POST(request: Request){
-    const { nome } = await request.json()
+    const { nome, cidade } = await request.json()
 
-    if(!nome){
-        return NextResponse.json({ error: "Nome não encontrado!" }, {status: 400})  
+    if(!nome || !cidade){
+        return NextResponse.json({ error: "Nome ou Cidade não encontrados!" }, {status: 400})  
     }
 
     try {
         const comodo = await prismaClient.comodo.create({
             data: {
                 nome,
+                cidade,
             }
         })
 
@@ -35,23 +41,29 @@ export async function POST(request: Request){
 export async function PUT(request: Request){
     const { searchParams } = new URL(request.url)
 
-    const { nome, id } = await request.json()
+    const { nome, cidade, id } = await request.json()
 
-    if(!nome || !id){
-        return NextResponse.json({ error: "Nome ou ID não encontrados!" }, {status: 400})  
+    if(!id){
+        return NextResponse.json({ error: "ID não encontrado!" }, {status: 400})  
     }
+
+    let data = {
+        nome, 
+        cidade,
+    }
+
+    cleanData(data)
 
     try {
         const comodo = await prismaClient.comodo.update({
             where: {
                 id,
             },
-            data: {
-                nome,
-            }
+            data,
         })
         return NextResponse.json(comodo, {status: 200})
     } catch (error) {
+        console.log(error)
         return NextResponse.json({ error: "Erro ao atualizar comodo!" }, {status: 400})
     }
 }
