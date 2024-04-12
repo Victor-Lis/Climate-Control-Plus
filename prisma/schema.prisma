@@ -8,7 +8,21 @@ generator client {
   provider = "prisma-client-js"
 }
 
+// datasource db {
+//   provider = "postgresql"
+//   url      = env("DATABASE_URL")
+// }
+
 datasource db {
-  provider = "postgresql"
-  url      = env("DATABASE_URL")
+  provider = "sqlite"
+  url      = "file:./dev.db"
+}
+
+model Climas {
+  id String @id @default(uuid())
+  temperatura_externa Float
+  temperatura_do_comodo Float
+
+  humidade_externa Float
+  humidade_do_comodo Float
 }
