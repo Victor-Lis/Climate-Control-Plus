@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server'
 import prismaClient from '@/lib/prisma'
 import { redirect } from 'next/navigation'
+import { ComodoType } from '@/@types/comodo'
 
 function cleanData<T extends { [key: string]: {cidade: string, nome: string} }>(object: T){
     let keys = Object.keys(object)
@@ -9,7 +10,7 @@ function cleanData<T extends { [key: string]: {cidade: string, nome: string} }>(
 
 export async function GET(request: Request){
     try {
-        const comodos = await prismaClient.comodo.findMany({})
+        const comodos: ComodoType[] = await prismaClient.comodo.findMany({})
         comodos.sort((a,b) => a.nome.localeCompare(b.nome))
         return NextResponse.json(comodos, {status: 200})
     } catch (error) {
@@ -25,7 +26,7 @@ export async function POST(request: Request){
     }
 
     try {
-        const comodo = await prismaClient.comodo.create({
+        const comodo: ComodoType = await prismaClient.comodo.create({
             data: {
                 nome,
                 cidade,
@@ -55,7 +56,7 @@ export async function PUT(request: Request){
     cleanData(data)
 
     try {
-        const comodo = await prismaClient.comodo.update({
+        const comodo: ComodoType = await prismaClient.comodo.update({
             where: {
                 id,
             },
@@ -78,12 +79,12 @@ export async function DELETE(request: Request){
     }
 
     try {
-        const comodo = await prismaClient.comodo.delete({
+        const comodo: ComodoType = await prismaClient.comodo.delete({
             where: {
                 id,
             },
         })
-        const comodos = await prismaClient.comodo.findMany({})
+        const comodos: ComodoType[] = await prismaClient.comodo.findMany({})
         comodos.sort((a,b) => a.nome.localeCompare(b.nome))
         return NextResponse.json(comodos, {status: 200})
     } catch (error) {
