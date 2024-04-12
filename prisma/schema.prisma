@@ -19,10 +19,20 @@ datasource db {
 }
 
 model Climas {
-  id String @id @default(uuid())
-  temperatura_externa Float
+  id                    String @id @default(uuid())
+  temperatura_externa   Float
   temperatura_do_comodo Float
 
-  humidade_externa Float
+  humidade_externa   Float
   humidade_do_comodo Float
+
+  id_do_comodo String
+  comodo       Comodo @relation(fields: [id_do_comodo], references: [id])
+}
+
+model Comodo {
+  id String @id @default(uuid())
+
+  nome   String
+  climas Climas[]
 }
