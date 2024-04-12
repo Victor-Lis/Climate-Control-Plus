@@ -34,5 +34,7 @@ model Comodo {
   id String @id @default(uuid())
 
   nome   String
+  cidade String
+  
   climas Climas[]
 }
