@@ -3,6 +3,7 @@ import prismaClient from "@/lib/prisma";
 import { redirect } from "next/navigation";
 
 import { getCityWeather } from "./getCityWeather";
+import { ClimaType } from "@/@types/clima";
 
 export async function POST(request: Request) {
   const { id_do_comodo, temperatura_do_comodo, humidade_do_comodo } =
@@ -58,15 +59,22 @@ export async function GET(request: Request) {
   const id_do_comodo = searchParams.get("id_do_comodo");
 
   try {
-    let climas;
+    let climas: ClimaType[];
     if (id_do_comodo) {
       climas = await prismaClient.climas.findMany({
         where: {
           id_do_comodo,
         },
+        include: {
+          comodo: true,
+        }
       });
     } else {
-      climas = await prismaClient.climas.findMany({});
+      climas = await prismaClient.climas.findMany({
+        include: {
+          comodo: true,
+        }
+      });
     }
     return NextResponse.json(climas);
   } catch (error) {
@@ -87,6 +95,9 @@ export async function DELETE(request: Request) {
       where: {
         id,
       },
+      include: {
+        comodo: true,
+      }
     });
     return NextResponse.json(clima);
   } catch (error) {
