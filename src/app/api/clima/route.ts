@@ -39,3 +39,23 @@ export async function POST(request: Request){
         return NextResponse.json({ error: "Clima não criado!" }, {status: 400})
     }
 }
+
+export async function DELETE(request: Request){
+    const { id } = await request.json()
+
+    if(!id){
+        return NextResponse.json({ error: "Precisamos do 'id'!" }, {status: 400})
+    }
+
+    try {   
+        let clima = await prismaClient.climas.findFirst({
+            where: {
+                id,
+            }
+        })
+        return NextResponse.json(clima)
+    } catch (error) {
+        return NextResponse.json({ error: "Clima não criado!" }, {status: 400})
+    }
+}
+
