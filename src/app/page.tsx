@@ -13,8 +13,8 @@ export default async function Home() {
     <main className="min-h-[100vh] bg-zinc-950 flex items-center justify-center">
       <div className="w-11/12 h-5/6 bg-white p-2 rounded-md shadow-sm shadow-white">
         <RegistersHeader/>
-        {climas?.map((clima) => {
-          return ( <ClimaRow clima={clima}/> )
+        {climas?.map((clima, id) => {
+          return ( <ClimaRow clima={clima} key={id}/> )
         })}
       </div>
     </main>
