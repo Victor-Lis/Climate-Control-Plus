@@ -1,7 +1,16 @@
 import { ClimaType } from "@/@types/clima"
+import { api } from "@/lib/api"
 
 export async function getClimas(){
-    const url = `${process.env.HOST_URL}/api/clima`
-    let climas = await fetch(url).then(res => res.json())
-    return climas as ClimaType[]
+    let climas: ClimaType[] = await api.get("/clima")
+    .then(function (response) {
+        console.log(response)
+        return response.data
+    })
+    .catch((e) => {
+        console.log(e)
+        return []
+    })
+    console.log(climas)
+    return climas
 }
