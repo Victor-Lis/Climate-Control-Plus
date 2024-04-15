@@ -11,4 +11,6 @@ export type ClimaType = {
 
     id_do_comodo: string,
     comodo: ComodoType,
+
+    datetime: Date
 }

@@ -28,6 +28,8 @@ model Climas {
 
   id_do_comodo String
   comodo       Comodo @relation(fields: [id_do_comodo], references: [id])
+
+  datetime DateTime @default(now())
 }
 
 model Comodo {

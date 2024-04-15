@@ -11,7 +11,7 @@ export default async function Home() {
   
   return (
     <main className="min-h-[100vh] bg-zinc-950 flex items-center justify-center">
-      <div className="w-11/12 h-5/6 bg-white p-2 rounded-md shadow-sm shadow-white">
+      <div className="w-11/12 h-5/6 bg-white p-2 rounded-md shadow-sm shadow-white my-5">
         <RegistersHeader/>
         {climas?.map((clima, id) => {
           return ( <ClimaRow clima={clima} key={id}/> )
