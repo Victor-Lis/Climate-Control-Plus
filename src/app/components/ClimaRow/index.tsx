@@ -1,6 +1,7 @@
 import { FiEdit, FiTrash2 } from "react-icons/fi";
 import { ClimaType } from "@/@types/clima";
 import ButtonTrash from "../ButtonTrash";
+import ButtonEdit from "../ButtonEdit";
 
 export default function ClimaRow({ clima }: { clima: ClimaType }) {
 
@@ -48,10 +49,7 @@ export default function ClimaRow({ clima }: { clima: ClimaType }) {
           </div>
         </div>
         <div className="mx-2 my-2 flex flex-wrap justify-center items-center">
-          <div className="flex m-1 justify-center items-center bg-blue-500 p-1 rounded hover:scale-90 duration-300 hover:opacity-75 cursor-pointer">
-            {/* <h6 className="mx-2 text-white">Editar</h6> */}
-            <FiEdit size={18.5} color="#FFF" />
-          </div>
+          <ButtonEdit id={clima.id} apiRoute="/cadastro/climas/"/>
           <ButtonTrash id={clima.id} apiRoute="/api/clima"/>
         </div>
       </div>
