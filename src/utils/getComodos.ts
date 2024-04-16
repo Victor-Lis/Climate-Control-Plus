@@ -1,6 +1,14 @@
 import { ComodoType } from "@/@types/comodo"
+import { api } from "@/lib/api"
 
 export async function getComodos(){
-    let comodos = await fetch(`${process.env.HOST_URL}/api/comodo`).then(res => res.json())
-    return comodos as ComodoType[]
+    let comodos: ComodoType[] = await api.get("/api/comodo")
+    .then(function (response) {
+        return response.data
+    })
+    .catch((e) => {
+        console.log(e)
+        return []
+    })
+    return comodos
 }
