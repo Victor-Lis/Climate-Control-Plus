@@ -1,6 +1,6 @@
 import { FiEdit, FiTrash2 } from "react-icons/fi";
 import { ClimaType } from "@/@types/clima";
-import ButtonTrash from "./components/ButtonTrash";
+import ButtonTrash from "../ButtonTrash";
 
 export default function ClimaRow({ clima }: { clima: ClimaType }) {
 
@@ -52,7 +52,7 @@ export default function ClimaRow({ clima }: { clima: ClimaType }) {
             {/* <h6 className="mx-2 text-white">Editar</h6> */}
             <FiEdit size={18.5} color="#FFF" />
           </div>
-          <ButtonTrash id={clima.id}/>
+          <ButtonTrash id={clima.id} apiRoute="/api/clima"/>
         </div>
       </div>
     </div>
