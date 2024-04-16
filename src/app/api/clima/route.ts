@@ -91,7 +91,7 @@ export async function DELETE(request: Request) {
   }
 
   try {
-    let clima = await prismaClient.climas.findFirst({
+    let clima = await prismaClient.climas.delete({
       where: {
         id,
       },
