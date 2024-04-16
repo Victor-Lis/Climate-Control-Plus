@@ -76,6 +76,7 @@ export async function GET(request: Request) {
         }
       });
     }
+    climas.sort((a, b) => b.datetime.getTime()-a.datetime.getTime())
     return NextResponse.json(climas);
   } catch (error) {
     console.log(error);
