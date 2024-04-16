@@ -30,8 +30,8 @@ export default function Clima() {
       "humidade_do_comodo": data.humidade
     })
     .then((res) => {
-      console.log(res)
       router.replace("/")
+      router.refresh()
     })
     .catch((e) => {
       console.log(e)

@@ -28,8 +28,8 @@ export default function Comodo() {
       "cidade": data.cidade
     })
     .then((res) => {
-      console.log(res)
       router.replace("/")
+      router.refresh()
     })
     .catch((e) => {
       console.log(e)
