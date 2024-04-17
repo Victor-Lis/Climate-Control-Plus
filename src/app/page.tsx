@@ -9,7 +9,9 @@ import { ComodoType } from "@/@types/comodo";
 export default async function Home() {
 
   const climas: ClimaType[] = await getClimas()
+  console.log(climas)
   const comodos: ComodoType[] = await getComodos()
+  console.log(comodos)
   
   return (
     <main className="min-h-[100vh] bg-zinc-950 flex flex-col items-center justify-center">
