@@ -73,7 +73,7 @@ export default function Comodo({ params }: { params: ParamsType }) {
 
     handleGetComodos()
     handleGetComodo()
-  }, [])
+  }, [params.id])
 
   return (
     <main className="min-h-[100vh] bg-zinc-950 flex items-center justify-center">

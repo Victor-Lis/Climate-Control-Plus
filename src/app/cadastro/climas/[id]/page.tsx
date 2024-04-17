@@ -77,7 +77,7 @@ export default function Clima({ params }: { params: ParamsType }) {
 
     handleGetComodos()
     handleGetClima()
-  }, [])
+  }, [params.id])
 
   return (
     <main className="min-h-[100vh] bg-zinc-950 flex items-center justify-center">
