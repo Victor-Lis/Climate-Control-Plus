@@ -87,6 +87,7 @@ export default function Clima() {
         <div className="flex flex-col w-full justify-between items-center my-2">
           <h3 className="text-2xl text-zinc-950">Cômodo</h3>
           <select className="w-48 border-2 rounded-md h-10 px-2 text-black" {...register("comodo", { required: true })}>
+            <option></option>
             {comodos?.map((comodo) => {
               if(watch("comodo").id !== comodo.id){ 
                 return <option value={comodo.id} key={comodo.id}>{comodo.nome}</option>;
