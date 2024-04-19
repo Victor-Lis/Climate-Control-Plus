@@ -1,7 +1,7 @@
 "use client";
 import { api } from "@/lib/api";
 import { useRouter } from "next/navigation";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { FiTrash2 } from "react-icons/fi";
 
 export default function ButtonTrash({id, apiRoute}:{id: string, apiRoute: string}) {
@@ -10,7 +10,6 @@ export default function ButtonTrash({id, apiRoute}:{id: string, apiRoute: string
   const router = useRouter()
 
   async function handleDelete() {
-    console.log(id)
     setLoading(true)
     await api.delete(apiRoute, {
         data: {
@@ -18,8 +17,10 @@ export default function ButtonTrash({id, apiRoute}:{id: string, apiRoute: string
         }
     })
     .then(res => {
-        console.log(res.data)
-        router.refresh()
+      router.refresh()
+      if(process.env.HOST_URL){
+        router.replace(process.env.HOST_URL as string)
+      }
     })
     setLoading(false)
   }
