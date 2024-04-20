@@ -20,7 +20,7 @@ export default function ClimasContainer() {
         setClimas(datas)
       }
       datas.map((data) => {
-        setLabels((oldArray) => [formatDate(new Date(data.datetime)), ...oldArray])
+        setLabels((oldArray) => [...oldArray, formatDate(new Date(data.datetime))])
         setTemperaturaDoComodo((oldArray) => [...oldArray, data.temperatura_do_comodo])
         setTemperaturaExterna((oldArray) => [...oldArray, data.temperatura_externa])
       })
