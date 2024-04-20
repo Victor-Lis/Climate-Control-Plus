@@ -30,11 +30,11 @@ export default function ClimaRow({ clima }: { clima: ClimaType }) {
           <h2 className="text-1xl text-blue-500">Humidade</h2>
           <div className="flex justify-around items-center">
             <h2 className="mx-2">Humidade do Cômodo: </h2>
-            <p>{clima.humidade_do_comodo}C°</p>
+            <p>{clima.humidade_do_comodo}%</p>
           </div>
           <div className="flex justify-around items-center">
             <h2 className="mx-2">Humidade Externa: </h2>
-            <p>{clima.humidade_externa}C°</p>
+            <p>{clima.humidade_externa}%</p>
           </div>
         </div>
         <div className="mx-2 my-2 flex-1 flex flex-col justify-start items-start">
