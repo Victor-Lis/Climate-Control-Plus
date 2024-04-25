@@ -1,4 +1,5 @@
 # Climate Control - Plus
+Projeto elaborado visando um trabalho escolar
 
 ## Autores
 
