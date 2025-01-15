@@ -41,11 +41,38 @@ O Climate Control Plus é uma aplicação web que permite monitorar e analisar a
 
 ## 🌐 APIs Integradas
 
-- OpenWeather API - Para dados climáticos externos
+- [OpenWeather API](https://openweathermap.org/) - Para dados climáticos externos
 
 <br>
 
-## 📦 Instalação
+## 📋 Estrutura do Projeto
+```bash
+├── src/
+│   ├── @types/         # Definições de tipos TypeScript
+│   ├── app/           # Componentes e páginas Next.js
+│   │   ├── api/      # Rotas da API
+│   │   ├── cadastro/ # Página de cadastro
+|   |   ├── delete/ # Página de exclusão
+│   │   └── components/ # Componentes React reutilizáveis
+│   ├── lib/          # Configurações (Prisma, Axios)
+│   └── utils/        # Funções utilitárias
+├── prisma/           # Configuração do banco de dados
+└── public/          # Arquivos estáticos
+```
+
+## 🔧 Exemplo do .env
+```bash
+# URL do banco de dados PostgreSQL
+DATABASE_URL="postgres://user:password@host:port/database"
+
+# URL base da aplicação
+HOST_URL="http://localhost:3000"
+
+# Chave da API OpenWeather
+OPEAN_WEATHER_API_KEY="sua_chave_aqui"
+```
+
+## 👀 Veja você mesmo
 
 ```bash
 # Clone o repositório
@@ -55,7 +82,7 @@ git clone https://github.com/seu-usuario/climate-control-plus.git
 npm install
 
 # Configure as variáveis de ambiente
-# Crie um arquivo .env baseado no .env.example
+# Crie um arquivo .env
 
 # Execute as migrações do banco
 npx prisma migrate dev
@@ -63,6 +90,8 @@ npx prisma migrate dev
 # Inicie o servidor de desenvolvimento
 npm run dev
 ```
+
+### [🌐 Deploy ao vivo - Fora do Ar](https://climate-control-plus-by-dev-victor.vercel.app/)
 
 <br>
 
