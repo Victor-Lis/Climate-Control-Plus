@@ -51,8 +51,8 @@ O Climate Control Plus é uma aplicação web que permite monitorar e analisar a
 │   ├── @types/         # Definições de tipos TypeScript
 │   ├── app/           # Componentes e páginas Next.js
 │   │   ├── api/      # Rotas da API
-│   │   ├── cadastro/ # Página de cadastro
-|   |   ├── delete/ # Página de exclusão
+│   │   ├── cadastro/ # Páginas de cadastro
+│   │   ├── delete/ # Página de exclusão
 │   │   └── components/ # Componentes React reutilizáveis
 │   ├── lib/          # Configurações (Prisma, Axios)
 │   └── utils/        # Funções utilitárias
@@ -71,6 +71,8 @@ HOST_URL="http://localhost:3000"
 # Chave da API OpenWeather
 OPEAN_WEATHER_API_KEY="sua_chave_aqui"
 ```
+
+<br>
 
 ## 👀 Veja você mesmo
 
