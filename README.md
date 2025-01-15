@@ -98,4 +98,4 @@ npm run dev
 <br>
 
 ## Autores
-- [@Victor-Lis](https://github.com/Victor-Lis)
+- [@Victor-Lis](https://www.linkedin.com/in/victor-lis-bronzo/)
