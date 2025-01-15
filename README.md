@@ -93,7 +93,7 @@ npx prisma migrate dev
 npm run dev
 ```
 
-### [🌐 Deploy ao vivo - Fora do Ar](https://climate-control-plus-by-dev-victor.vercel.app/)
+### [🌐 Deploy ao vivo](https://climate-control-plus-by-dev-victor.vercel.app/) - Fora do Ar
 
 <br>
 
